@@ -78,10 +78,24 @@
 }
 
 .delete-btn {
+  all: unset;
   background-color: red;
   padding: 5px;
   font-size: 0.8rem;
   color: white;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .wrong {
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 300px;
+    color: red;
+  }
 }

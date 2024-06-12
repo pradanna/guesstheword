@@ -25,8 +25,12 @@
         <div class="main-div2">
             <p class="title">Add Words</p>
             <div class="mb-3">
-                <input type="text" class="form-control" id="theanswer" placeholder="The words">
-                <a class="btn">Add</a>
+                <form method="POST" action="{{ route('addwords.store') }}">
+                    @csrf
+                    <input type="text" class="form-control" id="theanswer" placeholder="The words" name="kata"
+                        required>
+                    <button type="submit" class="btn">Add</button>
+                </form>
             </div>
 
         </div>
@@ -44,14 +48,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            Words
-                        </td>
-                        <td>
-                            <a class="delete-btn">Delete</a>
-                        </td>
-                    </tr>
+                    @foreach ($addwords as $word)
+                        <tr>
+                            <td>
+                                <span style="color: gray"> {{ $word->kata }}</span>
+                            </td>
+                            <td>
+
+                                <form action="{{ route('addwords.destroy', $word->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="delete-btn" type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
 

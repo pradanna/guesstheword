@@ -16,6 +16,9 @@ class CreateThewordsTable extends Migration
         Schema::create('thewords', function (Blueprint $table) {
             $table->id(); // Auto-incrementing primary key
             $table->string('kata'); // Column for the word
+            $table->dateTime('created_at'); // Column for the word
+            $table->dateTime('updated_at'); // Column for the word
+
         });
     }
 

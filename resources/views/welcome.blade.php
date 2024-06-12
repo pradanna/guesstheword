@@ -20,19 +20,37 @@
 </head>
 
 <body>
-
+    @if (session('error'))
+        <div id="hideMe" class="div">
+            <span class="wrong">{{ session('error') }} </span>
+        </div>
+    @endif
     <div class="main-container">
         <div class="main-div">
             <p class="title">Guess The Word</p>
             <div class="mb-3">
-                <input type="text" class="form-control" id="theanswer" placeholder="Your Answer">
-                <a class="btn">Submit</a>
+                <form method="POST" action="{{ route('addwords.check') }}">
+                    @csrf
+                    <input type="text" name="kata" class="form-control" id="theanswer" placeholder="Your Answer">
+                    <button class="btn" type="submit">Check Word</button>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                var div = document.getElementById('hideMe');
+                if (div) {
+                    div.style.display = 'none';
+                }
+            }, 2000); // 3000 milidetik = 3 detik
+        }
     </script>
 </body>
 

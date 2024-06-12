@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddwordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,7 @@ Route::get('/congrats', function () {
     return view('chongrats');
 });
 
-
-
-Route::get('/addwords', function () {
-    return view('addword');
-});
+Route::get('/addwords', [AddwordController::class, 'index'])->name('addwords.index');
+Route::post('/addwords', [AddwordController::class, 'store'])->name('addwords.store');
+Route::delete('/addwords/{id}', [AddwordController::class, 'destroy'])->name('addwords.destroy');
+Route::post('/check-word', [AddwordController::class, 'checkWord'])->name('addwords.check');
