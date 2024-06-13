@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Guess The Word</title>
+    <title>Enter The Numbers</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -27,12 +27,12 @@
     @endif
     <div class="main-container">
         <div class="main-div">
-            <p class="title">Guess The Word</p>
+            <p class="title">Enter The Numbers</p>
             <div class="mb-3">
                 <form method="POST" action="{{ route('addwords.check') }}">
                     @csrf
                     <input type="text" name="kata" class="form-control" id="theanswer" placeholder="Your Answer">
-                    <button class="btn" type="submit">Check Word</button>
+                    <button class="btn" type="submit">Check Numbers</button>
                 </form>
             </div>
         </div>
