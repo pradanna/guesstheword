@@ -19,15 +19,31 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 </head>
 
-<body>
+<body style="background-color: #191919">
 
-    <img class="chongrat-image" src="{{ asset('images/congrats.jpg') }}" />
+    <img class="chongrat-image" src="{{ asset('images/congrats.jpeg') }}" />
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+
+    <audio id="audio" src="{{ asset('images/congrats.mp3') }}" type="audio/mp3"></audio>
+    <button id="playButton" style="display: none;">Play Audio</button>
+
+    <script>
+        audio.addEventListener("canplaythrough", () => {
+            audio.play().catch(e => {
+                window.addEventListener('click', () => {
+                    audio.play()
+                }, {
+                    once: true
+                })
+            })
+        });
+    </script>
+
 </body>
 
 </html>

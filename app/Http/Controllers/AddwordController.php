@@ -45,7 +45,7 @@ class AddwordController extends Controller
             return redirect()->to('/congrats'); // Ganti '/desired-page' dengan URL tujuan Anda
         } else {
             // Tampilkan alert jika kata tidak ditemukan
-            return redirect()->back()->with('error', 'Sorry, the answer you entered is wrong');
+            return redirect()->to('/fail');
         }
     }
 }
